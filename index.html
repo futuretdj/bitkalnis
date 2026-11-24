@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bitkalnis: mead and honey cider from a hill in Molėtai</title>
+<meta name="description" content="A small meadery on a hill in the Molėtai lake district. Linden, buckwheat and juniper meads, a three-year oak reserve, tastings in the old granary and a cellar tour.">
+<meta name="theme-color" content="#1d140c">
+<link rel="alternate" hreflang="en" href="https://futuretdj.github.io/bitkalnis/">
+<link rel="alternate" hreflang="lt" href="https://futuretdj.github.io/bitkalnis/lt/">
+<meta property="og:title" content="Bitkalnis: mead from the hill">
+<meta property="og:description" content="Fly from the hives at dawn to the cellar at 11 °C. Meads, tastings and gift boxes, delivered across the EU.">
+<meta property="og:image" content="https://futuretdj.github.io/bitkalnis/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/gloock-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hankengrotesk-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="seq/d/000.webp">
+<script>document.documentElement.classList.add('js');if(matchMedia('(max-width:1023px),(pointer:coarse)').matches)document.documentElement.classList.add('touch');</script>
+<link rel="stylesheet" href="bitkalnis.css?v=1">
+</head>
+<body>
+
+<div class="age" data-age hidden role="dialog" aria-modal="true" aria-labelledby="age-h">
+  <div class="age__card">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#bee"/></svg>
+    <h2 id="age-h">Are you 20 or older?</h2>
+    <p>In Lithuania mead is sold to adults from 20. Honey and the beekeeper morning are open to everyone.</p>
+    <div class="row"><button class="btn" type="button" data-age-yes>Yes, I am 20+</button><a class="btn btn--ghost" href="#honey" data-age-no>No, show me the honey</a></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bee" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="20" cy="23" rx="6.5" ry="9"/><path d="M14 20.5h12M13.7 25h12.6M15 29.4h10"/><path d="M20 14c-1-3-3.4-4.6-6-4.4M20 14c1-3 3.4-4.6 6-4.4"/><path d="M14 18c-5.5-5-11-3.5-10.5 0.5S10 22 14 21M26 18c5.5-5 11-3.5 10.5 0.5S30 22 26 21"/></g></symbol>
+</svg>
+
+<header class="nav" data-nav>
+  <a class="logo" href="#top" aria-label="Bitkalnis, home"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#bee"/></svg><span>Bitkalnis</span></a>
+  <nav class="nav__links" aria-label="Main"><a href="#meads">Meads</a><a href="#tastings">Tastings</a><a href="#gift">Gift box</a><a href="#visit">Visit</a></nav>
+  <div class="nav__end">
+    <a class="lang mono" href="lt/" hreflang="lt" lang="lt">LT</a>
+    <button class="bagbtn" type="button" data-bag-open aria-label="Open bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><b data-bag-count>0</b></button>
+    <button class="menubtn" type="button" data-menu aria-expanded="false" data-open="Menu" data-close="Close">Menu</button>
+  </div>
+  <div class="sheet" data-sheet><a href="#meads">Meads</a><a href="#tastings">Tastings</a><a href="#gift">Gift box</a><a href="#process">How it's made</a><a href="#visit">Visit</a><a class="mono" href="lt/" hreflang="lt" lang="lt">Lietuviškai</a></div>
+</header>
+
+<main id="top">
+  <!-- the flight: scroll moves the camera from the hill at dawn to the cellar -->
+  <section class="flight" data-flight aria-label="From the hives to the cellar">
+    <div class="flight__stage">
+      <img class="flight__poster" data-poster src="seq/d/000.webp" alt="Dawn over misty hills, a timber granary on the hilltop among apple trees" fetchpriority="high">
+      <canvas class="flight__gl" data-gl aria-hidden="true"></canvas>
+      <div class="flight__shade" aria-hidden="true"></div>
+      <div class="ch ch--0 on" data-ch="0">
+        <p class="mono ch__k">I · 05:42 · Bitkalnis hill, Molėtai</p>
+        <h1>Mead from the hill <em>where the bees wake first.</em></h1>
+        <p class="ch__p">A small meadery in the Lithuanian lake district. Three hundred hives, an old granary for tastings and a cellar that stays at eleven degrees all year.</p>
+        <div class="row"><a class="btn btn--light" href="#meads">Shop the meads</a><a class="btn btn--line" href="#tastings">Book a tasting</a></div>
+      </div>
+      <div class="ch" data-ch="1"><p class="mono ch__k">II · 06:10 · The orchard</p><h2>312 hives <em>between the apple trees.</em></h2><p class="ch__p">Blossom in May, linden in July, buckwheat in August. We take only the honey the bees can spare and leave the rest for winter.</p></div>
+      <div class="ch" data-ch="2"><p class="mono ch__k">III · 18:00 · The granary</p><h2>Six glasses, <em>one long table.</em></h2><p class="ch__p">The 1908 rye granary is now our tasting hall: dry juniper to dark buckwheat, with rye bread, smoked cheese and comb honey. Wednesday to Sunday.</p><div class="row"><a class="btn btn--light" href="#tastings">Book a seat</a></div></div>
+      <div class="ch" data-ch="3"><p class="mono ch__k">IV · 11 °C · The cellar</p><h2>Three winters <em>in Lithuanian oak.</em></h2><p class="ch__p">Down the stone steps the reserve rests in barrels coopered in Šilutė, then waits another year in glass before it leaves the hill.</p><div class="row"><a class="btn btn--light" href="#meads">Taste the reserve</a></div></div>
+      <ol class="rail mono" data-rail aria-hidden="true"><li>Hill</li><li>Orchard</li><li>Granary</li><li>Cellar</li></ol>
+      <p class="cue mono" data-cue aria-hidden="true"><span></span>Scroll to fly in</p>
+    </div>
+  </section>
+
+  <!-- facts -->
+  <section class="facts" aria-label="The meadery in numbers">
+    <div class="wrap facts__in">
+      <p class="facts__lead">We make <em>one thing</em> slowly: honey wine, from hives you can see from the cellar door.</p>
+      <dl class="facts__dl">
+        <div><dt class="mono">Colonies</dt><dd>312</dd></div>
+        <div><dt class="mono">Cellar, all year</dt><dd>11 °C</dd></div>
+        <div><dt class="mono">Longest rest</dt><dd>3 yrs</dd></div>
+        <div><dt class="mono">From Vilnius</dt><dd>62 km</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- shop -->
+  <section class="sec" id="meads" aria-labelledby="m-h">
+    <div class="wrap head">
+      <p class="label mono">The meads · 2026 harvest</p>
+      <h2 id="m-h">Six bottles, <em>each from one flower.</em></h2>
+      <p>Every batch is numbered on the wax. Delivery across Lithuania in two days and to the rest of the EU in four to six. Orders over €60 travel free inside Lithuania.</p>
+    </div>
+    <div class="wrap shop">
+      <div class="chips" role="group" aria-label="Filter" data-chips>
+        <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="mead">Still mead</button><button type="button" aria-pressed="false" data-f="spark">Sparkling</button><button type="button" aria-pressed="false" data-f="cider">Cider</button><button type="button" aria-pressed="false" data-f="honey">Honey</button>
+      </div>
+      <div class="grid" data-grid></div>
+      <p class="swipe mono">Swipe to see all →</p>
+    </div>
+    <!-- flavour map -->
+    <div class="wrap fmap">
+      <div class="fmap__text">
+        <p class="label mono">Not sure which one?</p>
+        <h3>The flavour map</h3>
+        <p>Dry on the left, sweet on the right, light at the top, rich at the bottom. Tap a bottle to read its notes, or tell us what you usually drink.</p>
+        <div class="seg" role="group" aria-label="I usually drink" data-like>
+          <button type="button" data-like="white">Dry white wine</button><button type="button" data-like="beer">Craft beer</button><button type="button" data-like="dessert">Dessert wine</button><button type="button" data-like="whisky">Whisky</button>
+        </div>
+        <div class="fmap__card" data-fcard aria-live="polite"></div>
+      </div>
+      <div class="fmap__plot" data-fplot>
+        <span class="ax ax--x1 mono">Dry</span><span class="ax ax--x2 mono">Sweet</span><span class="ax ax--y1 mono">Light</span><span class="ax ax--y2 mono">Rich</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- process -->
+  <section class="sec sec--wax" id="process" aria-labelledby="p-h">
+    <div class="wrap head"><p class="label mono">How it's made</p><h2 id="p-h">Eleven months <em>for a bottle of linden.</em></h2></div>
+    <div class="steps" data-steps>
+      <figure class="step"><button type="button" class="step__img" data-lb-i="0"><img src="img/comb2-640.webp" srcset="img/comb2-640.webp 640w, img/comb2-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Capped honeycomb cut from a frame" loading="lazy" decoding="async"></button><figcaption><span class="mono">July · Comb</span><b>Cut, not spun</b>Frames are uncapped by hand and drained cold, so the linden keeps its smell of a summer evening.</figcaption></figure>
+      <figure class="step"><button type="button" class="step__img" data-lb-i="1"><img src="img/drip-640.webp" srcset="img/drip-640.webp 640w, img/drip-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Honey running off a wooden dipper into a jar" loading="lazy" decoding="async"></button><figcaption><span class="mono">August · Must</span><b>Honey and spring water</b>One part honey to three of water from the well behind the granary. No heating, no sulphites.</figcaption></figure>
+      <figure class="step"><button type="button" class="step__img" data-lb-i="2"><img src="img/vault-640.webp" srcset="img/vault-640.webp 640w, img/vault-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Barrels resting in an arched stone cellar" loading="lazy" decoding="async"></button><figcaption><span class="mono">Autumn · Cellar</span><b>Slow and cold</b>Fermentation takes up to five months at 11 °C. The reserve then moves into oak for three winters.</figcaption></figure>
+      <figure class="step"><button type="button" class="step__img" data-lb-i="3"><img src="img/candle-640.webp" srcset="img/candle-640.webp 640w, img/candle-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Candlelit table laid for a tasting" loading="lazy" decoding="async"></button><figcaption><span class="mono">June · Glass</span><b>Bottled by hand</b>Swing tops, then the neck dipped in our own beeswax and stamped with the batch number.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- tastings -->
+  <section class="sec" id="tastings" aria-labelledby="t-h">
+    <div class="wrap head"><p class="label mono">Tastings & visits</p><h2 id="t-h">Come up <em>the hill.</em></h2><p>Every visit ends at the long table in the granary. Drivers get the honey-and-herb flight at half price, so nobody has to sit out.</p></div>
+    <div class="wrap book" data-book>
+      <div class="book__exp" role="radiogroup" aria-label="Experience" data-exps></div>
+      <div class="book__panel">
+        <div class="book__step"><p class="mono book__n">1 · Date</p><div class="cal" data-cal></div></div>
+        <div class="book__step"><p class="mono book__n">2 · Time</p><div class="slots" data-slots><p class="muted small">Pick a date first.</p></div></div>
+        <div class="book__step book__row">
+          <div><p class="mono book__n">3 · Guests</p><div class="stepper" data-guests><button type="button" data-d="-1" aria-label="One guest fewer">−</button><output data-gout>2</output><button type="button" data-d="1" aria-label="One guest more">+</button></div></div>
+          <div><p class="mono book__n">Drivers</p><div class="stepper" data-drivers><button type="button" data-d="-1" aria-label="One driver fewer">−</button><output data-dout>0</output><button type="button" data-d="1" aria-label="One driver more">+</button></div></div>
+          <div><p class="mono book__n">Language</p><div class="seg seg--sm" role="radiogroup" aria-label="Language"><label><input type="radio" name="glang" value="en" checked><span>EN</span></label><label><input type="radio" name="glang" value="lt"><span>LT</span></label></div></div>
+        </div>
+        <form class="book__form" data-bform novalidate>
+          <label><span class="mono">Name</span><input name="nm" autocomplete="name" required></label>
+          <label><span class="mono">Email</span><input name="em" type="email" autocomplete="email" required></label>
+          <div class="book__sum"><p data-bsum class="small muted">Choose an experience, a date and a time.</p><p class="book__tot" data-btot>€0</p></div>
+          <button class="btn btn--wide" type="submit">Reserve the table</button>
+          <p class="err small" data-berr aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- gift box -->
+  <section class="sec sec--dark" id="gift" aria-labelledby="g-h">
+    <div class="wrap head"><p class="label mono">Gift box</p><h2 id="g-h">Pack a box <em>for someone patient.</em></h2><p>Choose two or three bottles, the case and a line for the card. We pack in hay and pine, with the batch notes folded inside.</p></div>
+    <div class="wrap gift">
+      <div class="gift__view" data-gview aria-live="polite"></div>
+      <div class="gift__opts">
+        <p class="mono book__n">Case</p>
+        <div class="seg" role="radiogroup" aria-label="Case" data-gcase>
+          <label><input type="radio" name="gcase" value="card2" checked><span>Kraft, 2 bottles · €6</span></label>
+          <label><input type="radio" name="gcase" value="card3"><span>Kraft, 3 bottles · €8</span></label>
+          <label><input type="radio" name="gcase" value="oak3"><span>Pine crate, 3 · €22</span></label>
+        </div>
+        <p class="mono book__n">Bottles <span data-gcount></span></p>
+        <div class="gpick" data-gpick></div>
+        <label class="gnote"><span class="mono book__n">Card · <span data-gleft>90</span> characters left</span><textarea data-gmsg maxlength="90" rows="2" placeholder="For the long winter evenings."></textarea></label>
+        <label class="check"><input type="checkbox" data-gburn> Burn the name into the lid (+€8, pine crate only)</label>
+        <div class="gift__foot"><p class="book__tot" data-gtot>€0</p><button class="btn btn--light" type="button" data-gadd>Add box to bag</button></div>
+        <p class="err small" data-gerr aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- visit -->
+  <section class="sec" id="visit" aria-labelledby="v-h">
+    <div class="wrap head"><p class="label mono">Visit</p><h2 id="v-h">Sixty-two kilometres, <em>then a gravel road.</em></h2></div>
+    <div class="wrap visit">
+      <div class="map" data-map>
+        <svg viewBox="0 0 600 420" role="img" aria-label="Route from Vilnius to Bitkalnis via Molėtai">
+          <rect width="600" height="420" fill="#efe4cc"/>
+          <g fill="#c9d6c9" stroke="#9fb3a2" stroke-width="1"><path d="M402 70c30-8 66 6 70 30s-26 40-58 36-46-20-42-38 10-24 30-28Z"/><path d="M470 180c22-6 50 4 52 22s-20 30-44 28-34-14-32-28 8-18 24-22Z"/><path d="M330 150c14-4 30 2 32 14s-12 20-26 18-22-8-20-18 4-10 14-14Z"/><path d="M500 300c18-4 38 4 38 16s-16 22-34 20-24-10-22-20 6-12 18-16Z"/></g>
+          <path class="route" d="M86 360 C150 330 190 300 230 262 S300 196 352 186 S420 168 448 132" fill="none" stroke="#b36a1c" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="7 6"/>
+          <path d="M448 132 l14 -16" stroke="#b36a1c" stroke-width="2" stroke-dasharray="3 4" fill="none"/>
+          <g font-family="JetBrains Mono, monospace" font-size="12" fill="#3a2a18">
+            <circle cx="86" cy="360" r="6" fill="#3a2a18"/><text x="64" y="388">Vilnius</text>
+            <circle cx="352" cy="186" r="4.5" fill="#3a2a18"/><text x="300" y="214">Molėtai · 50 km</text>
+            <text x="430" y="62">Lake Baltieji Lakajai</text>
+          </g>
+          <g transform="translate(462 116)"><circle r="15" fill="#1d140c"/><use href="#bee" x="-11" y="-11" width="22" height="22" style="color:#f0c060"/></g>
+          <text x="484" y="104" font-family="Gloock, serif" font-size="18" fill="#1d140c">Bitkalnis</text>
+          <text x="484" y="122" font-family="JetBrains Mono, monospace" font-size="11" fill="#5a4630">last 4 km gravel</text>
+        </svg>
+      </div>
+      <div class="visit__info">
+        <p class="open" data-open-now></p>
+        <table class="hours"><tbody>
+          <tr><th>Mon–Tue</th><td>Closed, bees only</td></tr>
+          <tr><th>Wed–Thu</th><td>12:00–19:00</td></tr>
+          <tr><th>Fri–Sat</th><td>11:00–21:00</td></tr>
+          <tr><th>Sun</th><td>11:00–17:00</td></tr>
+        </tbody></table>
+        <address>Bitkalnio g. 3, Bitkalnis village<br>Molėtai district, LT-33101, Lithuania<br><a href="tel:+37060000000">+370 600 00000</a> · <a href="mailto:labas@bitkalnis.example">labas@bitkalnis.example</a></address>
+        <p class="small muted">No car? The Vilnius–Molėtai bus takes 75 minutes. Tell us the time and we collect you from Molėtai bus station for €6 each way.</p>
+        <div class="row"><a class="btn btn--sm" href="https://www.openstreetmap.org/#map=12/55.25/25.42" target="_blank" rel="noopener">Open in maps</a><a class="btn btn--sm btn--ghost" href="#tastings">Book a visit</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- honey for everyone -->
+  <section class="sec sec--wax" id="honey" aria-labelledby="h-h">
+    <div class="wrap honey">
+      <picture class="honey__img"><img src="img/jars-640.webp" srcset="img/jars-640.webp 640w, img/jars-1200.webp 960w" sizes="(max-width:1023px) 100vw, 45vw" alt="Jars of linden honey with a wooden dipper" loading="lazy" decoding="async"></picture>
+      <div class="honey__t"><p class="label mono">No alcohol</p><h2 id="h-h">The same honey, <em>in a jar.</em></h2><p>Linden, buckwheat and late heather, raw and cold-drained, in 450 g jars. Anyone can buy these, and the beekeeper morning in the tastings is open to families with children from eight.</p><div class="row"><a class="btn" href="#meads" data-jump-honey>Shop honey</a></div></div>
+    </div>
+  </section>
+
+  <!-- voices -->
+  <section class="sec" aria-labelledby="r-h">
+    <div class="wrap head"><p class="label mono">Guest book</p><h2 id="r-h">What people <em>wrote on the way out.</em></h2></div>
+    <div class="wrap voices">
+      <blockquote><p>“The buckwheat one tastes like the inside of my grandmother's pantry. I bought four.”</p><footer class="mono">Rūta, Kaunas · ★★★★★</footer></blockquote>
+      <blockquote><p>“We came for the cellar tour and stayed for the second flight. The driver flight is a brilliant idea.”</p><footer class="mono">Tom & Emma, Edinburgh · ★★★★★</footer></blockquote>
+      <blockquote><p>“Opening a hive at nine in the morning, then honey straight from the comb. My son talks about nothing else.”</p><footer class="mono">Marius, Vilnius · ★★★★★</footer></blockquote>
+    </div>
+  </section>
+
+  <section class="sec sec--tight" aria-labelledby="q-h">
+    <div class="wrap faq">
+      <h2 id="q-h">Questions</h2>
+      <details><summary>What does mead taste like?</summary><p>Closer to wine than to honey. Our dry juniper is crisp like a Riesling; the buckwheat is deep and malty, close to a tawny port. Only the linden is properly sweet.</p></details>
+      <details><summary>Do you ship outside Lithuania?</summary><p>Yes, to every EU country with an age check on delivery. Most parcels arrive in four to six working days; delivery is €9.90, free in Lithuania over €60.</p></details>
+      <details><summary>How long does an opened bottle keep?</summary><p>Still meads keep for three to four weeks in the fridge with the swing top closed. Sparkling is best within two days.</p></details>
+      <details><summary>Can we book the granary for a private event?</summary><p>For up to 28 guests, Monday or Tuesday evenings. Write to us with a date and we will send a menu.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="logo"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#bee"/></svg><span>Bitkalnis</span></p>
+    <p class="small">Concept site made as a portfolio piece. Bitkalnis, its prices, guests and reviews are invented. Photos: <a href="credits.html">credits</a>.</p>
+    <p class="small warn">Alcohol damages your health. Sold to persons aged 20 and over.</p>
+  </div>
+</footer>
+
+<aside class="bag" data-bag hidden aria-label="Bag" role="dialog" aria-modal="true">
+  <div class="bag__panel">
+    <div class="bag__head"><h3>Your bag</h3><button type="button" class="x" data-bag-close aria-label="Close">×</button></div>
+    <div class="ship" data-ship></div>
+    <ul class="bag__list" data-bag-list></ul>
+    <div class="bag__foot">
+      <p class="bag__tot"><span>Total</span><b data-bag-tot>€0</b></p>
+      <label class="check"><input type="checkbox" data-bag-age> I am 20 or older and will show ID on delivery</label>
+      <button class="btn btn--wide" type="button" data-checkout>Checkout</button>
+      <p class="small muted" data-bag-note></p>
+    </div>
+  </div>
+</aside>
+
+<div class="ticket" data-ticket hidden role="dialog" aria-modal="true" aria-labelledby="tk-h">
+  <div class="ticket__card">
+    <button type="button" class="x" data-ticket-close aria-label="Close">×</button>
+    <p class="mono">Booking <b data-tk-code></b></p>
+    <h3 id="tk-h" data-tk-title></h3>
+    <p data-tk-when></p>
+    <p class="small muted" data-tk-note></p>
+    <div class="row"><a class="btn btn--sm" data-tk-ics download="bitkalnis.ics" href="#">Add to calendar</a><button class="btn btn--sm btn--ghost" type="button" data-ticket-close>Done</button></div>
+  </div>
+</div>
+
+<div class="lb" data-lb hidden role="dialog" aria-modal="true" aria-label="Photos">
+  <button type="button" class="x" data-lb-close aria-label="Close">×</button>
+  <div class="lb__track" data-lb-track>
+    <figure><img data-src="img/comb2-1200.webp" alt="Capped honeycomb cut from a frame"></figure>
+    <figure><img data-src="img/drip-1200.webp" alt="Honey running off a wooden dipper"></figure>
+    <figure><img data-src="img/vault-1200.webp" alt="Barrels in an arched stone cellar"></figure>
+    <figure><img data-src="img/candle-1200.webp" alt="Candlelit tasting table"></figure>
+  </div>
+  <p class="lb__n mono" data-lb-n></p>
+</div>
+
+<div class="toast" data-toast role="status"></div>
+<script type="module" src="bitkalnis.js?v=1"></script>
+</body>
+</html>

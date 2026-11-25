@@ -17,7 +17,7 @@
 <link rel="preload" href="fonts/hankengrotesk-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="seq/d/000.webp">
 <script>document.documentElement.classList.add('js');if(matchMedia('(max-width:1023px),(pointer:coarse)').matches)document.documentElement.classList.add('touch');</script>
-<link rel="stylesheet" href="bitkalnis.css?v=1">
+<link rel="stylesheet" href="bitkalnis.css?v=3">
 </head>
 <body>
 
@@ -51,16 +51,16 @@
     <div class="flight__stage">
       <img class="flight__poster" data-poster src="seq/d/000.webp" alt="Dawn over misty hills, a timber granary on the hilltop among apple trees" fetchpriority="high">
       <canvas class="flight__gl" data-gl aria-hidden="true"></canvas>
-      <div class="flight__shade" aria-hidden="true"></div>
+      <div class="flight__shade" aria-hidden="true"></div><div class="flight__bar" aria-hidden="true"><i data-bar></i></div>
       <div class="ch ch--0 on" data-ch="0">
-        <p class="mono ch__k">I · 05:42 · Bitkalnis hill, Molėtai</p>
+        <p class="mono ch__k"><span>01 / 04</span> Bitkalnis hill · 05:42</p>
         <h1>Mead from the hill <em>where the bees wake first.</em></h1>
-        <p class="ch__p">A small meadery in the Lithuanian lake district. Three hundred hives, an old granary for tastings and a cellar that stays at eleven degrees all year.</p>
-        <div class="row"><a class="btn btn--light" href="#meads">Shop the meads</a><a class="btn btn--line" href="#tastings">Book a tasting</a></div>
+        <p class="ch__p">A small meadery in the Molėtai lake district.</p>
+        <a class="ch__go" href="#meads">Shop the meads <i>→</i></a>
       </div>
-      <div class="ch" data-ch="1"><p class="mono ch__k">II · 06:10 · The orchard</p><h2>312 hives <em>between the apple trees.</em></h2><p class="ch__p">Blossom in May, linden in July, buckwheat in August. We take only the honey the bees can spare and leave the rest for winter.</p></div>
-      <div class="ch" data-ch="2"><p class="mono ch__k">III · 18:00 · The granary</p><h2>Six glasses, <em>one long table.</em></h2><p class="ch__p">The 1908 rye granary is now our tasting hall: dry juniper to dark buckwheat, with rye bread, smoked cheese and comb honey. Wednesday to Sunday.</p><div class="row"><a class="btn btn--light" href="#tastings">Book a seat</a></div></div>
-      <div class="ch" data-ch="3"><p class="mono ch__k">IV · 11 °C · The cellar</p><h2>Three winters <em>in Lithuanian oak.</em></h2><p class="ch__p">Down the stone steps the reserve rests in barrels coopered in Šilutė, then waits another year in glass before it leaves the hill.</p><div class="row"><a class="btn btn--light" href="#meads">Taste the reserve</a></div></div>
+      <div class="ch" data-ch="1"><p class="mono ch__k"><span>02 / 04</span> The orchard · 06:10</p><h2>312 hives <em>between the apple trees.</em></h2><p class="ch__p">Blossom, linden, buckwheat. No sugar feeding.</p><a class="ch__go" href="#process">How it's made <i>→</i></a></div>
+      <div class="ch" data-ch="2"><p class="mono ch__k"><span>03 / 04</span> The granary · 18:00</p><h2>Six glasses, <em>one long table.</em></h2><p class="ch__p">Tastings Wednesday to Sunday, from €26.</p><a class="ch__go" href="#tastings">Book a seat <i>→</i></a></div>
+      <div class="ch" data-ch="3"><p class="mono ch__k"><span>04 / 04</span> The cellar · 11 °C</p><h2>Three winters <em>in Lithuanian oak.</em></h2><p class="ch__p">The reserve, 16%, numbered on the wax.</p><a class="ch__go" href="#meads">Taste the reserve <i>→</i></a></div>
       <ol class="rail mono" data-rail aria-hidden="true"><li>Hill</li><li>Orchard</li><li>Granary</li><li>Cellar</li></ol>
       <p class="cue mono" data-cue aria-hidden="true"><span></span>Scroll to fly in</p>
     </div>
@@ -69,8 +69,8 @@
   <!-- facts -->
   <section class="facts" aria-label="The meadery in numbers">
     <div class="wrap facts__in">
-      <p class="facts__lead">We make <em>one thing</em> slowly: honey wine, from hives you can see from the cellar door.</p>
-      <dl class="facts__dl">
+      <p class="facts__lead split">We make <em>one thing</em> slowly: honey wine, from hives you can see from the cellar door.</p>
+      <dl class="facts__dl rv">
         <div><dt class="mono">Colonies</dt><dd>312</dd></div>
         <div><dt class="mono">Cellar, all year</dt><dd>11 °C</dd></div>
         <div><dt class="mono">Longest rest</dt><dd>3 yrs</dd></div>
@@ -79,11 +79,13 @@
     </div>
   </section>
 
+  <div class="marq" aria-hidden="true"><div class="marq__t"><span>Liepžiedis<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Grikių<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Kadagys<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Putojantis<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Oak Reserve<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Honey Cider<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Liepžiedis<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Grikių<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Kadagys<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Putojantis<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Oak Reserve<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span><span>Honey Cider<svg viewBox="0 0 40 40"><use href="#bee"/></svg></span></div></div>
+
   <!-- shop -->
   <section class="sec" id="meads" aria-labelledby="m-h">
-    <div class="wrap head">
+    <div class="wrap head rv">
       <p class="label mono">The meads · 2026 harvest</p>
-      <h2 id="m-h">Six bottles, <em>each from one flower.</em></h2>
+      <h2 id="m-h" class="split">Six bottles, <em>each from one flower.</em></h2>
       <p>Every batch is numbered on the wax. Delivery across Lithuania in two days and to the rest of the EU in four to six. Orders over €60 travel free inside Lithuania.</p>
     </div>
     <div class="wrap shop">
@@ -95,7 +97,7 @@
     </div>
     <!-- flavour map -->
     <div class="wrap fmap">
-      <div class="fmap__text">
+      <div class="fmap__text rv rv-l">
         <p class="label mono">Not sure which one?</p>
         <h3>The flavour map</h3>
         <p>Dry on the left, sweet on the right, light at the top, rich at the bottom. Tap a bottle to read its notes, or tell us what you usually drink.</p>
@@ -104,7 +106,7 @@
         </div>
         <div class="fmap__card" data-fcard aria-live="polite"></div>
       </div>
-      <div class="fmap__plot" data-fplot>
+      <div class="fmap__plot rv rv-s" data-fplot>
         <span class="ax ax--x1 mono">Dry</span><span class="ax ax--x2 mono">Sweet</span><span class="ax ax--y1 mono">Light</span><span class="ax ax--y2 mono">Rich</span>
       </div>
     </div>
@@ -112,21 +114,21 @@
 
   <!-- process -->
   <section class="sec sec--wax" id="process" aria-labelledby="p-h">
-    <div class="wrap head"><p class="label mono">How it's made</p><h2 id="p-h">Eleven months <em>for a bottle of linden.</em></h2></div>
+    <div class="wrap head rv"><p class="label mono">How it's made</p><h2 id="p-h" class="split">Eleven months <em>for a bottle of linden.</em></h2></div>
     <div class="steps" data-steps>
-      <figure class="step"><button type="button" class="step__img" data-lb-i="0"><img src="img/comb2-640.webp" srcset="img/comb2-640.webp 640w, img/comb2-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Capped honeycomb cut from a frame" loading="lazy" decoding="async"></button><figcaption><span class="mono">July · Comb</span><b>Cut, not spun</b>Frames are uncapped by hand and drained cold, so the linden keeps its smell of a summer evening.</figcaption></figure>
-      <figure class="step"><button type="button" class="step__img" data-lb-i="1"><img src="img/drip-640.webp" srcset="img/drip-640.webp 640w, img/drip-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Honey running off a wooden dipper into a jar" loading="lazy" decoding="async"></button><figcaption><span class="mono">August · Must</span><b>Honey and spring water</b>One part honey to three of water from the well behind the granary. No heating, no sulphites.</figcaption></figure>
-      <figure class="step"><button type="button" class="step__img" data-lb-i="2"><img src="img/vault-640.webp" srcset="img/vault-640.webp 640w, img/vault-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Barrels resting in an arched stone cellar" loading="lazy" decoding="async"></button><figcaption><span class="mono">Autumn · Cellar</span><b>Slow and cold</b>Fermentation takes up to five months at 11 °C. The reserve then moves into oak for three winters.</figcaption></figure>
-      <figure class="step"><button type="button" class="step__img" data-lb-i="3"><img src="img/candle-640.webp" srcset="img/candle-640.webp 640w, img/candle-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Candlelit table laid for a tasting" loading="lazy" decoding="async"></button><figcaption><span class="mono">June · Glass</span><b>Bottled by hand</b>Swing tops, then the neck dipped in our own beeswax and stamped with the batch number.</figcaption></figure>
+      <figure class="step rv"><button type="button" class="step__img" data-lb-i="0"><img src="img/comb2-640.webp" srcset="img/comb2-640.webp 640w, img/comb2-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Capped honeycomb cut from a frame" loading="lazy" decoding="async"></button><figcaption><span class="mono">July · Comb</span><b>Cut, not spun</b>Frames are uncapped by hand and drained cold, so the linden keeps its smell of a summer evening.</figcaption></figure>
+      <figure class="step rv"><button type="button" class="step__img" data-lb-i="1"><img src="img/drip-640.webp" srcset="img/drip-640.webp 640w, img/drip-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Honey running off a wooden dipper into a jar" loading="lazy" decoding="async"></button><figcaption><span class="mono">August · Must</span><b>Honey and spring water</b>One part honey to three of water from the well behind the granary. No heating, no sulphites.</figcaption></figure>
+      <figure class="step rv"><button type="button" class="step__img" data-lb-i="2"><img src="img/vault-640.webp" srcset="img/vault-640.webp 640w, img/vault-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Barrels resting in an arched stone cellar" loading="lazy" decoding="async"></button><figcaption><span class="mono">Autumn · Cellar</span><b>Slow and cold</b>Fermentation takes up to five months at 11 °C. The reserve then moves into oak for three winters.</figcaption></figure>
+      <figure class="step rv"><button type="button" class="step__img" data-lb-i="3"><img src="img/candle-640.webp" srcset="img/candle-640.webp 640w, img/candle-1200.webp 1200w" sizes="(max-width:1023px) 78vw, 25vw" alt="Candlelit table laid for a tasting" loading="lazy" decoding="async"></button><figcaption><span class="mono">June · Glass</span><b>Bottled by hand</b>Swing tops, then the neck dipped in our own beeswax and stamped with the batch number.</figcaption></figure>
     </div>
   </section>
 
   <!-- tastings -->
   <section class="sec" id="tastings" aria-labelledby="t-h">
-    <div class="wrap head"><p class="label mono">Tastings & visits</p><h2 id="t-h">Come up <em>the hill.</em></h2><p>Every visit ends at the long table in the granary. Drivers get the honey-and-herb flight at half price, so nobody has to sit out.</p></div>
+    <div class="wrap head rv"><p class="label mono">Tastings & visits</p><h2 id="t-h" class="split">Come up <em>the hill.</em></h2><p>Every visit ends at the long table in the granary. Drivers get the honey-and-herb flight at half price, so nobody has to sit out.</p></div>
     <div class="wrap book" data-book>
-      <div class="book__exp" role="radiogroup" aria-label="Experience" data-exps></div>
-      <div class="book__panel">
+      <div class="book__exp rv rv-l" role="radiogroup" aria-label="Experience" data-exps></div>
+      <div class="book__panel rv">
         <div class="book__step"><p class="mono book__n">1 · Date</p><div class="cal" data-cal></div></div>
         <div class="book__step"><p class="mono book__n">2 · Time</p><div class="slots" data-slots><p class="muted small">Pick a date first.</p></div></div>
         <div class="book__step book__row">
@@ -147,10 +149,10 @@
 
   <!-- gift box -->
   <section class="sec sec--dark" id="gift" aria-labelledby="g-h">
-    <div class="wrap head"><p class="label mono">Gift box</p><h2 id="g-h">Pack a box <em>for someone patient.</em></h2><p>Choose two or three bottles, the case and a line for the card. We pack in hay and pine, with the batch notes folded inside.</p></div>
+    <div class="wrap head rv"><p class="label mono">Gift box</p><h2 id="g-h" class="split">Pack a box <em>for someone patient.</em></h2><p>Choose two or three bottles, the case and a line for the card. We pack in hay and pine, with the batch notes folded inside.</p></div>
     <div class="wrap gift">
-      <div class="gift__view" data-gview aria-live="polite"></div>
-      <div class="gift__opts">
+      <div class="gift__view rv rv-s" data-gview aria-live="polite"></div>
+      <div class="gift__opts rv">
         <p class="mono book__n">Case</p>
         <div class="seg" role="radiogroup" aria-label="Case" data-gcase>
           <label><input type="radio" name="gcase" value="card2" checked><span>Kraft, 2 bottles · €6</span></label>
@@ -169,25 +171,25 @@
 
   <!-- visit -->
   <section class="sec" id="visit" aria-labelledby="v-h">
-    <div class="wrap head"><p class="label mono">Visit</p><h2 id="v-h">Sixty-two kilometres, <em>then a gravel road.</em></h2></div>
+    <div class="wrap head rv"><p class="label mono">Visit</p><h2 id="v-h" class="split">Sixty-two kilometres, <em>then a gravel road.</em></h2></div>
     <div class="wrap visit">
-      <div class="map" data-map>
+      <div class="map rv" data-map>
         <svg viewBox="0 0 600 420" role="img" aria-label="Route from Vilnius to Bitkalnis via Molėtai">
           <rect width="600" height="420" fill="#efe4cc"/>
           <g fill="#c9d6c9" stroke="#9fb3a2" stroke-width="1"><path d="M402 70c30-8 66 6 70 30s-26 40-58 36-46-20-42-38 10-24 30-28Z"/><path d="M470 180c22-6 50 4 52 22s-20 30-44 28-34-14-32-28 8-18 24-22Z"/><path d="M330 150c14-4 30 2 32 14s-12 20-26 18-22-8-20-18 4-10 14-14Z"/><path d="M500 300c18-4 38 4 38 16s-16 22-34 20-24-10-22-20 6-12 18-16Z"/></g>
-          <path class="route" d="M86 360 C150 330 190 300 230 262 S300 196 352 186 S420 168 448 132" fill="none" stroke="#b36a1c" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="7 6"/>
+          <path class="route route-draw" d="M86 360 C150 330 190 300 230 262 S300 196 352 186 S420 168 448 132" fill="none" stroke="#b36a1c" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="7 6"/>
           <path d="M448 132 l14 -16" stroke="#b36a1c" stroke-width="2" stroke-dasharray="3 4" fill="none"/>
           <g font-family="JetBrains Mono, monospace" font-size="12" fill="#3a2a18">
             <circle cx="86" cy="360" r="6" fill="#3a2a18"/><text x="64" y="388">Vilnius</text>
             <circle cx="352" cy="186" r="4.5" fill="#3a2a18"/><text x="300" y="214">Molėtai · 50 km</text>
             <text x="430" y="62">Lake Baltieji Lakajai</text>
           </g>
-          <g transform="translate(462 116)"><circle r="15" fill="#1d140c"/><use href="#bee" x="-11" y="-11" width="22" height="22" style="color:#f0c060"/></g>
+          <g class="pin" transform="translate(462 116)"><circle r="15" fill="#1d140c"/><use href="#bee" x="-11" y="-11" width="22" height="22" style="color:#f0c060"/></g>
           <text x="484" y="104" font-family="Gloock, serif" font-size="18" fill="#1d140c">Bitkalnis</text>
           <text x="484" y="122" font-family="JetBrains Mono, monospace" font-size="11" fill="#5a4630">last 4 km gravel</text>
         </svg>
       </div>
-      <div class="visit__info">
+      <div class="visit__info rv">
         <p class="open" data-open-now></p>
         <table class="hours"><tbody>
           <tr><th>Mon–Tue</th><td>Closed, bees only</td></tr>
@@ -204,29 +206,29 @@
 
   <!-- honey for everyone -->
   <section class="sec sec--wax" id="honey" aria-labelledby="h-h">
-    <div class="wrap honey">
-      <picture class="honey__img"><img src="img/jars-640.webp" srcset="img/jars-640.webp 640w, img/jars-1200.webp 960w" sizes="(max-width:1023px) 100vw, 45vw" alt="Jars of linden honey with a wooden dipper" loading="lazy" decoding="async"></picture>
-      <div class="honey__t"><p class="label mono">No alcohol</p><h2 id="h-h">The same honey, <em>in a jar.</em></h2><p>Linden, buckwheat and late heather, raw and cold-drained, in 450 g jars. Anyone can buy these, and the beekeeper morning in the tastings is open to families with children from eight.</p><div class="row"><a class="btn" href="#meads" data-jump-honey>Shop honey</a></div></div>
+    <div class="wrap honey rv">
+      <picture class="honey__img"><i class="drip" style="left:22%;height:70px"></i><i class="drip" style="left:61%;height:110px;animation-delay:1.7s"></i><i class="drip" style="left:83%;height:54px;animation-delay:3.1s"></i><img src="img/jars-640.webp" srcset="img/jars-640.webp 640w, img/jars-1200.webp 960w" sizes="(max-width:1023px) 100vw, 45vw" alt="Jars of linden honey with a wooden dipper" loading="lazy" decoding="async"></picture>
+      <div class="honey__t"><p class="label mono">No alcohol</p><h2 id="h-h" class="split">The same honey, <em>in a jar.</em></h2><p>Linden, buckwheat and late heather, raw and cold-drained, in 450 g jars. Anyone can buy these, and the beekeeper morning in the tastings is open to families with children from eight.</p><div class="row"><a class="btn" href="#meads" data-jump-honey>Shop honey</a></div></div>
     </div>
   </section>
 
   <!-- voices -->
   <section class="sec" aria-labelledby="r-h">
-    <div class="wrap head"><p class="label mono">Guest book</p><h2 id="r-h">What people <em>wrote on the way out.</em></h2></div>
+    <div class="wrap head rv"><p class="label mono">Guest book</p><h2 id="r-h" class="split">What people <em>wrote on the way out.</em></h2></div>
     <div class="wrap voices">
-      <blockquote><p>“The buckwheat one tastes like the inside of my grandmother's pantry. I bought four.”</p><footer class="mono">Rūta, Kaunas · ★★★★★</footer></blockquote>
-      <blockquote><p>“We came for the cellar tour and stayed for the second flight. The driver flight is a brilliant idea.”</p><footer class="mono">Tom & Emma, Edinburgh · ★★★★★</footer></blockquote>
-      <blockquote><p>“Opening a hive at nine in the morning, then honey straight from the comb. My son talks about nothing else.”</p><footer class="mono">Marius, Vilnius · ★★★★★</footer></blockquote>
+      <blockquote class="rv"><p>“The buckwheat one tastes like the inside of my grandmother's pantry. I bought four.”</p><footer class="mono">Rūta, Kaunas · ★★★★★</footer></blockquote>
+      <blockquote class="rv"><p>“We came for the cellar tour and stayed for the second flight. The driver flight is a brilliant idea.”</p><footer class="mono">Tom & Emma, Edinburgh · ★★★★★</footer></blockquote>
+      <blockquote class="rv"><p>“Opening a hive at nine in the morning, then honey straight from the comb. My son talks about nothing else.”</p><footer class="mono">Marius, Vilnius · ★★★★★</footer></blockquote>
     </div>
   </section>
 
   <section class="sec sec--tight" aria-labelledby="q-h">
     <div class="wrap faq">
       <h2 id="q-h">Questions</h2>
-      <details><summary>What does mead taste like?</summary><p>Closer to wine than to honey. Our dry juniper is crisp like a Riesling; the buckwheat is deep and malty, close to a tawny port. Only the linden is properly sweet.</p></details>
-      <details><summary>Do you ship outside Lithuania?</summary><p>Yes, to every EU country with an age check on delivery. Most parcels arrive in four to six working days; delivery is €9.90, free in Lithuania over €60.</p></details>
-      <details><summary>How long does an opened bottle keep?</summary><p>Still meads keep for three to four weeks in the fridge with the swing top closed. Sparkling is best within two days.</p></details>
-      <details><summary>Can we book the granary for a private event?</summary><p>For up to 28 guests, Monday or Tuesday evenings. Write to us with a date and we will send a menu.</p></details>
+      <details class="rv"><summary>What does mead taste like?</summary><p>Closer to wine than to honey. Our dry juniper is crisp like a Riesling; the buckwheat is deep and malty, close to a tawny port. Only the linden is properly sweet.</p></details>
+      <details class="rv"><summary>Do you ship outside Lithuania?</summary><p>Yes, to every EU country with an age check on delivery. Most parcels arrive in four to six working days; delivery is €9.90, free in Lithuania over €60.</p></details>
+      <details class="rv"><summary>How long does an opened bottle keep?</summary><p>Still meads keep for three to four weeks in the fridge with the swing top closed. Sparkling is best within two days.</p></details>
+      <details class="rv"><summary>Can we book the granary for a private event?</summary><p>For up to 28 guests, Monday or Tuesday evenings. Write to us with a date and we will send a menu.</p></details>
     </div>
   </section>
 </main>
@@ -276,6 +278,6 @@
 </div>
 
 <div class="toast" data-toast role="status"></div>
-<script type="module" src="bitkalnis.js?v=1"></script>
+<script type="module" src="bitkalnis.js?v=4"></script>
 </body>
 </html>

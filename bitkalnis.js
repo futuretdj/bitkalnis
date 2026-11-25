@@ -1,6 +1,6 @@
 // Bitkalnis: page logic (EN / LT)
 import { t, eur, L, DL } from './i18n.js';
-import { createSeq } from './seq.js';
+import { createSeq } from './seq.js?v=3';
 import { SEQ } from './seq-data.js';
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const TOUCH = document.documentElement.classList.contains('touch');
@@ -50,7 +50,7 @@ function bottle(p, h = 320) {
     <clipPath id="c${id}"><path d="${body}"/></clipPath></defs>
     <ellipse cx="${cx}" cy="332" rx="${bw * .62}" ry="6" fill="#000" opacity=".16"/>
     <path d="${body}" fill="#2e2a1f" opacity=".2"/>
-    <g clip-path="url(#c${id})"><rect x="0" y="${fill}" width="160" height="340" fill="${p.liquid}"/><rect x="0" y="${fill}" width="160" height="5" fill="#fff" opacity=".25"/></g>
+    <g clip-path="url(#c${id})"><g class="liq"><rect x="0" y="${fill}" width="160" height="340" fill="${p.liquid}"/><rect x="0" y="${fill}" width="160" height="5" fill="#fff" opacity=".25"/></g></g>
     <path d="${body}" fill="url(#${id})" stroke="rgba(32,22,13,.35)" stroke-width="1"/>
     ${swing}
     <path d="M${cx - nw / 2 - 3} ${top - (p.shape === 'spark' ? 4 : 0)} h${nw + 6} V${wy} H${cx - nw / 2 - 3} Z" fill="${p.wax}"/><path d="${drips}" fill="${p.wax}"/>
@@ -82,7 +82,9 @@ new ResizeObserver(measure).observe(document.body);
 let curCh = 0; rail.forEach((r, i) => { r.hidden = i >= SEQ.chapters.length; });
 function chapter(fr) { // which chapter for frame fr
   let k = 0; SEQ.chapters.forEach((c, i) => { if (fr >= c) k = i; }); return k; }
+const bar = $('[data-bar]');
 function setCh(fr) {
+  if (bar) bar.style.transform = `scaleX(${(fr / (SEQ.count - 1)).toFixed(4)})`;
   const k = chapter(fr), c0 = SEQ.chapters[k], c1 = SEQ.chapters[k + 1] ?? SEQ.count + 30;
   const show = fr < c1 - (c1 - c0) * .28 || k === SEQ.chapters.length - 1; const want = show ? k : -1;
   if (want !== curCh) { curCh = want; chs.forEach((c, i) => c.classList.toggle('on', i === want)); }
@@ -93,9 +95,10 @@ let seq = null;
 const canvas = $('[data-gl]');
 try {
   seq = createSeq({ canvas, count: SEQ.count, src: i => `${pre}seq/${TOUCH ? 'm' : 'd'}/${String(i).padStart(3, '0')}.webp`, onFrame: setCh, focusX: () => .5 });
-  seq.first.then(() => flightEl.classList.add('gl'));
+  window.__seq = seq; seq.first.then(() => { flightEl.classList.add('gl'); setTimeout(() => { seq.loadAll(gate, TOUCH ? 3 : 5); }, 0); setTimeout(() => { if (!introDone) seq.intro(INTRO, 3200); setTimeout(() => { introDone = true; }, 3300); }, 700); });
 } catch { seq = null; }
-const onScroll = () => { const p = Math.min(1, Math.max(0, (scrollY - trackTop) / trackLen)); if (seq) seq.set(p * (SEQ.count - 1)); else setCh(p * (SEQ.count - 1)); };
+const INTRO = 16; let introDone = false; // the camera starts moving by itself, then the scroll takes over from there
+const onScroll = () => { const p = Math.min(1, Math.max(0, (scrollY - trackTop) / trackLen)); const fr = p * (SEQ.count - 1); if (seq) { if (!introDone && p < .01) return; introDone = true; seq.set(INTRO + p * (SEQ.count - 1 - INTRO)); } else setCh(fr); };
 addEventListener('scroll', onScroll, { passive: true }); onScroll();
 // load the rest of the frames while the user is not mid-swipe
 let touching = 0, lastScroll = 0;
@@ -103,7 +106,7 @@ addEventListener('touchstart', () => touching++, { passive: true, capture: true 
 addEventListener('touchend', () => { touching = Math.max(0, touching - 1); lastScroll = performance.now(); }, { passive: true, capture: true });
 addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
 const gate = () => new Promise(res => { const chk = () => { if (touching && scrollY > trackTop + trackLen) setTimeout(chk, 150); else res(); }; chk(); });
-addEventListener('load', () => seq && seq.loadAll(gate, TOUCH ? 3 : 5), { once: true });
+
 
 /* ---------------- shop ---------------- */
 const grid = $('[data-grid]'); let curF = 'all';
@@ -113,7 +116,7 @@ grid.innerHTML = P.map(p => `<article class="pc" data-type="${p.type}" data-id="
   <div class="pc__foot"><span class="pc__price">${eur(p.price)}</span><button class="btn btn--sm pc__add" type="button" data-add="${p.id}">${t('add')}</button></div></div></article>`).join('');
 function filter(f) { curF = f; $$('[data-chips] button').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === f)); $$('.pc', grid).forEach(c => { c.hidden = f !== 'all' && c.dataset.type !== f; }); grid.scrollLeft = 0; }
 $('[data-chips]').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if (b) filter(b.dataset.f); });
-grid.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) { add(b.dataset.add); } });
+grid.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) { flyTo(b); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop'); add(b.dataset.add); } });
 $('[data-jump-honey]')?.addEventListener('click', () => filter('honey'));
 
 /* flavour map */
@@ -220,7 +223,7 @@ function gRender() {
   // the box drawn from above-front: case, hay, the chosen bottles, the card
   const crate = gcase === 'oak3', slots = c.n, bw = 150;
   const bottles = Array.from({ length: slots }, (_, i) => { const p = gsel[i] ? byId(gsel[i]) : null, x = 250 - (slots - 1) * bw / 2 + i * bw;
-    return p ? `<g transform="translate(${x - 52} 70)">${bottle(p, 260).replace('<svg', '<svg width="104"')}</g>` : `<g transform="translate(${x} 200)"><rect x="-34" y="-110" width="68" height="200" rx="12" fill="none" stroke="rgba(246,234,208,.35)" stroke-dasharray="6 6"/><text y="0" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="rgba(246,234,208,.5)">${i + 1}</text></g>`; }).join('');
+    return p ? `<g transform="translate(${x - 52} 70)"><g class="gb">${bottle(p, 260).replace('<svg', '<svg width="104"')}</g></g>` : `<g transform="translate(${x} 200)"><rect x="-34" y="-110" width="68" height="200" rx="12" fill="none" stroke="rgba(246,234,208,.35)" stroke-dasharray="6 6"/><text y="0" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="rgba(246,234,208,.5)">${i + 1}</text></g>`; }).join('');
   const caseFront = crate ? `<rect x="40" y="300" width="420" height="96" fill="#c89a62"/>${[0, 1, 2].map(k => `<rect x="40" y="${300 + k * 32}" width="420" height="30" fill="${['#c99d66', '#bf9058', '#c5975f'][k]}"/><path d="M40 ${330 + k * 32}h420" stroke="#8e6435" stroke-width="2"/>`).join('')}${burn.checked ? `<text x="250" y="356" text-anchor="middle" font-family="Gloock, serif" font-size="30" fill="#4a2a10" opacity=".8">${(msg.split(/[,.!\n]/)[0] || 'Bitkalnis').slice(0, 22)}</text>` : '<use href="#bee" x="232" y="330" width="36" height="36" style="color:#6b4420"/>'}`
     : `<rect x="40" y="300" width="420" height="96" fill="#a77c4c"/><rect x="40" y="300" width="420" height="10" fill="#8f6538"/><use href="#bee" x="232" y="330" width="36" height="36" style="color:#4a2e14"/><text x="250" y="384" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#4a2e14">BITKALNIS · ${new Date().getFullYear()}</text>`;
   $('[data-gview]').innerHTML = `<svg viewBox="0 0 500 400" role="img" aria-label="${t('box')}"><rect width="500" height="400" fill="#2b1d10"/>
@@ -254,3 +257,18 @@ $$('[data-lb-i]').forEach(b => b.addEventListener('click', () => { $$('img[data-
 const lbClose = () => { lb.hidden = true; document.body.style.overflow = ''; };
 $('[data-lb-close]').addEventListener('click', lbClose);
 addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (!lb.hidden) lbClose(); if (!bagEl.hidden) closeBag(); if (!tk.hidden) tk.hidden = true; });
+
+/* ---------------- motion ---------------- */
+function flyTo(from) { const a = from.getBoundingClientRect(), t = $('[data-bag-open]').getBoundingClientRect(), d = document.createElement('i'); d.className = 'fly'; document.body.append(d);
+  const x0 = a.left + a.width / 2 - 8, y0 = a.top + a.height / 2 - 8, x1 = t.left + t.width / 2 - 8, y1 = t.top + t.height / 2 - 8;
+  d.animate([{ transform: `translate(${x0}px,${y0}px) scale(1)` }, { transform: `translate(${(x0 + x1) / 2}px,${Math.min(y0, y1) - 120}px) scale(1.3)`, offset: .45 }, { transform: `translate(${x1}px,${y1}px) scale(.4)`, opacity: .6 }], { duration: 750, easing: 'cubic-bezier(.5,0,.5,1)' }).onfinish = () => d.remove(); }
+// headings rise word by word
+$$('.split').forEach(el => { const walk = n => { [...n.childNodes].forEach(c => { if (c.nodeType === 3) { const f = document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(w => { if (!w) return; if (/^\s+$/.test(w)) { f.append(w); return; } const o = document.createElement('span'); o.className = 'w'; const i = document.createElement('span'); i.textContent = w; o.append(i); f.append(o); }); c.replaceWith(f); } else if (c.nodeType === 1 && !c.classList.contains('w')) walk(c); }); }; walk(el);
+  $$('.w>span', el).forEach((s, k) => { s.style.transitionDelay = (k * .05) + 's'; }); });
+// counters
+function count(dd) { const m = dd.textContent.match(/^([\d.,]+)(.*)$/); if (!m) return; const end = parseFloat(m[1].replace(',', '.')), suf = m[2], t0 = performance.now();
+  const st = t => { const k = Math.min(1, (t - t0) / 1600), e = 1 - (1 - k) ** 3; dd.textContent = Math.round(end * e) + suf; if (k < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); }
+const rio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; const el = e.target; el.classList.add('in'); rio.unobserve(el);
+  if (el.classList.contains('facts__dl')) $$('dd', el).forEach(count); }), { rootMargin: '0px 0px -8% 0px', threshold: .01 });
+$$('.rv, .split, .pc, .honey').forEach(el => rio.observe(el));
+setTimeout(() => $$('.rv, .split, .pc').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add('in'); }), 4000);
